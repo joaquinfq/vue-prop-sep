@@ -1,0 +1,24 @@
+{
+    "name"         : "vue-prop-sep",
+    "version"      : "1.0.0",
+    "description"  : "Add `get`, `has`, `remove` and `set` methods to Vue componentes.",
+    "author"       : "Joaquín Fernández",
+    "license"      : "MIT",
+    "homepage"     : "http://www.joaquinfernandez.net",
+    "repository"   : {
+        "type" : "git",
+        "url"  : "https://github.com/joaquinfq/vue-tools-split"
+    },
+    "keywords"     : [
+        "dot-prop",
+        "prop-sep",
+        "sep-prop",
+        "set-prop",
+        "vue-dot-prop",
+        "vue-sep-prop",
+        "vue-set-prop"
+    ],
+    "dependencies" : {
+        "prop-sep" : "^2.0.1"
+    }
+}
