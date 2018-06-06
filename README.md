@@ -8,7 +8,7 @@ Add `get`, `has`, `remove` and `set` methods to Vue componentes.
 
 Using `.` as separator (by default).
 
-```
+```javascript
 import VuePropSep from 'vue-prop-sep';
 import Vue        from 'vue';
 
@@ -35,7 +35,7 @@ export default {
 
 Changing default separator.
 
-```
+```javascript
 import VuePropSep from 'vue-prop-sep';
 import Vue        from 'vue';
 
