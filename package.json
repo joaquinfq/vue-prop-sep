@@ -1,6 +1,6 @@
 {
     "name": "vue-prop-sep",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Add `get`, `has`, `remove` and `set` methods to Vue componentes.",
     "author": "Joaquín Fernández",
     "license": "MIT",
@@ -19,6 +19,9 @@
         "vue-set-prop"
     ],
     "dependencies": {
-        "prop-sep": "^2.0.1"
+        "prop-sep": "^2.1.0"
+    },
+    "scripts": {
+        "test": "node test.js"
     }
 }
