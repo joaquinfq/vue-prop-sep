@@ -1,7 +1,7 @@
 /**
  * Add `get`, `has`, `remove` and `set` methods to Vue componentes.
  */
-const propSep = require('prop-sep');
+const propSep = require('@jf/prop-sep');
 
 module.exports = {
     /**
