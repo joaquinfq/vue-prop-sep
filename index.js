@@ -1,5 +1,5 @@
 /**
- * Add `get`, `has`, `remove` and `set` methods to Vue componentes.
+ * Add `get`, `has`, `remove` and `set` methods to Vue components.
  */
 const propSep = require('@jf/prop-sep');
 
@@ -7,15 +7,15 @@ module.exports = {
     /**
      * Instala el plugin.
      *
-     * @param {Object} Vue     Referencia de la clase Vue.
+     * @param {Object} app     Aplicación Vue (output de "createApp" de vue^3)
      * @param {Object} options Opciones del plugin.
      */
-    install(Vue, options)
+    install(app, options)
     {
         const separator = propSep.get(options, 'separator', '.');
 
         Object.defineProperties(
-            Vue.prototype,
+            app.config.globalProperties,
             {
                 get    : {
                     /**
