@@ -1,23 +1,24 @@
 const assert      = require('assert');
 const plugin      = require('./index');
 let numAssertions = 0;
+const expectedAssertions = 12;
 
 class Vue
 {
     constructor()
     {
-        const _sep = this.constructor.separator || '.';
-
-        this.set(`a${_sep}b${_sep}c`, 1);
+        this.config = { globalProperties : {}};
     }
 
     test(path, expected)
     {
-        assert.deepEqual(this.get(path), expected, path);
+        const _sep = this.constructor.separator || '.';
+        this.config.globalProperties.set(`a${_sep}b${_sep}c`, 1);
+        assert.deepEqual(this.config.globalProperties.get(path), expected, path);
         ++numAssertions;
     }
 
-    static use(Plugin, options)
+    use(Plugin, options)
     {
         Plugin.install(this, options);
     }
@@ -57,25 +58,12 @@ class VueSlashSeparator extends Vue
 
 function testClass(Class)
 {
-    let _sep = Class.separator;
-    if (_sep)
-    {
-        Class.use(
-            plugin,
-            {
-                separator : _sep
-            }
-        );
-    }
-    else
-    {
-        Class.use(plugin);
-        _sep = '.';
-    }
+    const separator = Class.separator || '.';
     const _vue = new Class();
+    _vue.use(plugin, { separator });
     _vue.test('a', { b : { c : 1 } });
-    _vue.test(`a${_sep}b`, { c : 1 });
-    _vue.test(`a${_sep}b${_sep}c`, 1);
+    _vue.test(`a${separator}b`, { c : 1 });
+    _vue.test(`a${separator}b${separator}c`, 1);
 }
 
 testClass(VueDollarSeparator);
@@ -83,4 +71,4 @@ testClass(VueDotSeparator);
 testClass(VueNoSeparator);
 testClass(VueSlashSeparator);
 
-console.log('Total aserciones: %d', numAssertions);
+console.log(`Aserciones\n\tEsperadas: %d\n\tRealizadas: %d`, expectedAssertions, numAssertions);

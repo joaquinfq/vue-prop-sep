@@ -1,7 +1,7 @@
 {
     "name": "@jf/vue-prop-sep",
     "version": "2.0.0",
-    "description": "Add `get`, `has`, `remove` and `set` methods to Vue componentes.",
+    "description": "Add `get`, `has`, `remove` and `set` methods to Vue components.",
     "author": "Joaquín Fernández",
     "license": "MIT",
     "homepage": "http://www.joaquinfernandez.net",

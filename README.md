@@ -9,11 +9,6 @@ Add `get`, `has`, `remove` and `set` methods to Vue componentes.
 Using `.` as separator (by default).
 
 ```javascript
-import VuePropSep from 'vue-prop-sep';
-import Vue        from 'vue';
-
-Vue.use(VuePropSep);
-
 // Vue component
 export default {
     data()
@@ -31,21 +26,20 @@ export default {
         console.log(this.get('a.b')); // 5
     }
 }
+
+// index/main fail
+import VuePropSep    from 'vue-prop-sep';
+import { createApp } from 'vue';
+import VueComponent  from './vue-component';
+
+const app = createApp(VueComponent)
+app.use(VuePropSep);
+app.mount(/* node */);
 ```
 
 Changing default separator.
 
 ```javascript
-import VuePropSep from 'vue-prop-sep';
-import Vue        from 'vue';
-
-Vue.use(
-    VuePropSep,
-    {
-        separator : '/'
-    }
-);
-
 // Vue component
 export default {
     data()
@@ -63,4 +57,13 @@ export default {
         console.log(this.get('a/b')); // 5
     }
 }
+
+// index/main fail
+import VuePropSep    from 'vue-prop-sep';
+import { createApp } from 'vue';
+import VueComponent  from './vue-component';
+
+const app = createApp(VueComponent);
+app.use(VuePropSep, { separator : '/' });
+app.mount(/* node */);
 ```
